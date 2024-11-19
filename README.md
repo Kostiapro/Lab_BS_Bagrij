@@ -1,1 +1,1 @@
-# Lab_BS_Bagrij
+Ми попробуєм за 3 дня освоїти BottStrap
