@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Таск</title>
+    <style>
+       body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Змінено на flex-start */
+    background-color: #f8f9fa;
+    padding: 20px; /* Додано відступи для зручності */
+}
+html, body {
+    overflow-y: auto; /* Додає вертикальну прокрутку */
+}
+
+        .form-container {
+            min-height: 500px;
+            margin: 20px;
+
+            border: 1px solid #dee2e6;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .is-valid {
+            border-color: #28a745; /* Зелений для успішної валідації */
+        }
+        .is-invalid {
+            border-color: #dc3545; /* Червоний для неуспішної валідації */
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form novalidate  id="myForm">
+        <div class="form-group" >
+            <h1>Внесення даних про освітню компоненту
+            <p>ОПП до ІС "Каталог освітніх компонент"</p></h1>
+            <legend for="programSelect">Освітня програма</legend>
+            <select class="form-select" id="programSelect" required>
+                <option selected disabled value="">Оберіть освітню програму...</option>
+                <option value="program1">Економіка підприємства</option>
+                <option value="program2">Облік і аудит</option>
+                <option value="program3">Менеджмент</option>
+                <option value="program4">Екологія</option>
+                <option value="program5">Комп'ютерні науки</option>
+                <option value="program6">Електроенергетика, електроніка та електромеханіка</option>
+                <option value="program7">Агрономія</option>
+                <option value="program8">Лісове господарство</option>
+                <option value="program9">Агроінженерія</option>
+                <option value="program10">Менеджмент</option>
+                <option value="program11">Туризм</option>
+            </select>
+            <div class="invalid-feedback">
+                Будь-ласка, оберіть освітню програму.
+            </div>
+            <div class="valid-feedback">
+                Чудово!
+            </div>
+
+
+        <div class="form-group">
+            <legend>Освітній ступінь</legend>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="radio" id="bachelor" name="loh" value="bachelor" required>
+                <label class="form-check-label" for="bachelor">Бакалавр</label>
+<br>
+                <input class="form-check-input" type="radio" id="master" name="loh" value="master" required>
+                <label class="form-check-label" for="master">Магістр</label>
+            </div>
+            <div class="invalid-feedback">
+                Оберіть освітній ступінь.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <legend>Термін навчання</legend>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="studyDuration" id="short" value="short" required>
+                <label class="form-check-label" for="short">Скорочений</label>
+<br>
+                <input class="form-check-input" type="radio" name="studyDuration" id="long" value="long" required>
+                <label class="form-check-label" for="long">Повний</label>
+            </div>
+            <div class="invalid-feedback">
+                Оберіть термін навчання.
+            </div>
+        </div>
+
+        <fieldset class="form-group">
+            <legend>Вид ОК</legend>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="okType" id="type1" value="type1" required>
+                <label class="form-check-label" for="type1">Обов'язкова компонента (ОК)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="okType" id="type2" value="type2" required>
+                <label class="form-check-label" for="type2">Обов'язкова компонента за виборогм інституту (ОКІ)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="okType" id="type3" value="type3" required>
+                <label class="form-check-label" for="type3">Вибіркова фахова компонента (ВК)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="okType" id="type4" value="type4" required>
+                <label class="form-check-label" for="type4">Вибіркова компонента за уподобанням здобувача (ВКУ)</label>
+            </div>
+            <div class="invalid-feedback">
+                Оберіть вид ОК.
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <legend>Тип документа ОКЄ</legend>
+            <div class="d-flex">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="radio" name="documentType" id="docType1" value="docType1" required>
+                    <label class="form-check-label" for="docType1">Анотація</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="radio" name="documentType" id="docType2" value="docType2" required>
+                    <label class="form-check-label" for="docType2">Силабус</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="radio" name="documentType" id="docType2" value="docType2" required>
+                    <label class="form-check-label" for="docType2">Робоча програма</label>
+                </div>
+            </div>
+            <div class="invalid-feedback">
+                Оберіть тип документа ОКЄ.
+            </div>
+        </fieldset>
+
+        <div class="form-group">
+            <legend for="okName">Назва ОК за ОПП</legend>
+            <input type="text" class="form-control" id="okName" placeholder="01...09 або 10, 11 і.д." required>
+            <div class="invalid-feedback">
+
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <legend for="blockNumber">Номер з блоку</legend>
+            <input type="number" class="form-control" id="blockNumber" min="0" value="0" required>
+            <div class="invalid-feedback">
+                
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+            <legend for="okCorrespondence">Назва ОК у відповідності до ОПП</legend>
+            <input type="text" class="form-control" id="okCorrespondence" placeholder="Назва ОК..." required>
+            <div class="invalid-feedback">
+              
+            </div>
+        </div>
+
+        <div class="form-group">
+            <legend for="approvalDate">Дата затвердження ОК</legend>
+            <input type="date" class="form-control" id="approvalDate" required>
+            <div class="invalid-feedback">
+       
+            </div>
+        </div>
+
+        <fieldset class="form-group">
+            <legend>Семестр вивчення ОК</legend>
+            <div class="d-flex">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester1" value="semester1" required>
+                    <label class="form-check-label" for="semester1">1 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester2" value="semester2" required>
+                    <label class="form-check-label" for="semester2">2 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester3" value="semester3" required>
+                    <label class="form-check-label" for="semester3">3 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester4" value="semester4" required>
+                    <label class="form-check-label" for="semester4">4 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester5" value="semester5" required>
+                    <label class="form-check-label" for="semester5">5 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester6" value="semester6" required>
+                    <label class="form-check-label" for="semester6">6 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester7" value="semester7" required>
+                    <label class="form-check-label" for="semester7">7 сем.</label>
+                </div>
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="semester8" value="semester8" required>
+                    <label class="form-check-label" for="semester8">8 сем.</label>
+                </div>
+            </div>
+            <div class="invalid-feedback">
+                Оберіть хоча б один семестр.
+            </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Відправити дані</button>
+        <button type="reset" class="btn btn-secondary">Очистити форму</button>
+    </form>
+</div>
+
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", 
+    function(event) {
+    event.preventDefault();
+    if (this.checkValidity() === false) {
+     event.stopPropagation(); 
+     }
+    this.classList.add("was-validated");}, false);
+    </script>
+</body>
+</html>
